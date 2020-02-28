@@ -16,6 +16,10 @@ userSchema = new Schema({
      type: String,
      required:true,
      minlength : 6
+   },
+   image:{
+     type: String,
+     default: 'https://lh3.googleusercontent.com/proxy/M5NmEvmfDv5iG0pqFikRjoyhHh5ZPIAaUyeP5RjBv7Yvh_SDKYxdRy1u0YcvalzZhyYHjnqGt-AJsRItMrYay1gB8oZb7IAqvcsraXIaDx4s_MELIWrjaEnr7ahpOfs8ydXUaziT1bc'
    }
 }, { timestamps: true} )
 
