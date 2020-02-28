@@ -10,7 +10,7 @@ var app = express();
 require('dotenv').config();
 //mongoose database connect
 
-mongoose.connect('mongodb://localhost/fs',{ useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+mongoose.connect('mongodb://localhost/fs',{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
   console.log("connected", err?fasle:true)
 }) 
 

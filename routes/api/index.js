@@ -6,7 +6,17 @@ var auth = require('../../auth.js/auth')
 /* signup page. */
 router.post('/signup', async function(req, res) {
   try{
-  var user = await User.create(req.body)
+  // var user = await User.create(req.body)
+  var saveUser = await User ({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    location: {
+      type: "Point",
+      coordinates: [77.17339009999999, 31.1048294]
+     }
+  })
+  var user = await saveUser.save()
   res.status(200).json({success:true, user})
   } catch(error){
     res.json({success: false, error})

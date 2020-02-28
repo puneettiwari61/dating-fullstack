@@ -20,8 +20,21 @@ userSchema = new Schema({
    image:{
      type: String,
      default: 'https://lh3.googleusercontent.com/proxy/M5NmEvmfDv5iG0pqFikRjoyhHh5ZPIAaUyeP5RjBv7Yvh_SDKYxdRy1u0YcvalzZhyYHjnqGt-AJsRItMrYay1gB8oZb7IAqvcsraXIaDx4s_MELIWrjaEnr7ahpOfs8ydXUaziT1bc'
-   }
+   },
+   location: {
+    type: {
+      type: String,
+      enum: ['Point'], 
+      required: true
+    },
+    coordinates: {
+      type: [Number],
+      required: true
+    }
+  }
 }, { timestamps: true} )
+
+userSchema.index({ location: "2dsphere" });
 
 
 userSchema.pre('save', function(next){
