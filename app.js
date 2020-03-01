@@ -14,10 +14,10 @@ var app = express();
 require('dotenv').config();
 //mongoose database connect
 
-mongoose.connect('mongodb://localhost/fs',{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
+mongoose.connect(process.env.MONGO_URI,{ useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
   console.log("connected", err?fasle:true)
 }) 
-
+// 'mongodb://localhost/fs'
 
 
 app.use(cors());
