@@ -3,8 +3,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
+const cors = require('cors');
 var indexRouter = require('./routes/api/index');
 var usersRouter = require('./routes/api/user');
+
+
+
 
 var app = express();
 require('dotenv').config();
@@ -14,6 +18,9 @@ mongoose.connect('mongodb://localhost/fs',{ useNewUrlParser: true, useUnifiedTop
   console.log("connected", err?fasle:true)
 }) 
 
+
+
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
