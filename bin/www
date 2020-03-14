@@ -33,8 +33,9 @@ var server = http.createServer(app);
  const io = socketio(server);
  io.on('connection', (socket) => {
   // io.emit("user connected");
-  socket.on('join', ({ name, room }, callback) => {
-    console.log(name, room)
+  console.log("a user connected :D")
+  socket.on('chat message', msg => {
+    console.log(msg)
     // const { error, user } = addUser({ id: socket.id, name, room });
 
     // if(error) return callback(error);
@@ -45,9 +46,9 @@ var server = http.createServer(app);
 
     // io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
 
-    callback();
+    io.emit("chat message", msg);
   })
-  io.emit('message', { user: 'admin', text: `${'puneet'}, welcome to room ${'tiwari'}.`});
+  // io.emit('message', { user: 'admin', text: `${'puneet'}, welcome to room ${'tiwari'}.`});
 
 })
 
