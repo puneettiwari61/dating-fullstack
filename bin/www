@@ -34,7 +34,7 @@ var server = http.createServer(app);
  io.on('connection', (socket) => {
   // io.emit("user connected");
   console.log("a user connected :D")
-  socket.on('chat message', msg => {
+  socket.on('thoughts', msg => {
     console.log(msg)
     // const { error, user } = addUser({ id: socket.id, name, room });
 
